@@ -1,5 +1,7 @@
 import mongoose from "mongoose"
 
+
+
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -9,6 +11,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    type:{
+        type:String,
+        enum:['coach','player'],
+        required:true,
     },
     email: {
         type: String,
@@ -34,8 +41,10 @@ const userSchema = new mongoose.Schema({
     },
     profilePicture: {
         type: String,
+        public_id: String,
         default: null
-    }
+    },
+    
 }, { timestamps: true });
 
 export const userModel = mongoose.model('users', userSchema);
