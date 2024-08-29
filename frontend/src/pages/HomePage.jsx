@@ -5,6 +5,7 @@ import useShowToast from '../hooks/useShowToast';
 import axios from 'axios';
 import BASE_URL from '../utils/baseurl.js';
 import { setUser } from '../redux/authSlice';
+import Navbar from '../components/Navbar.jsx';
 
 const HomePage = () => {
     const navigate = useNavigate();
@@ -28,10 +29,13 @@ const HomePage = () => {
         }
     }
     return (
-        <div className='min-h-screen bg-teal-300 flex flex-col items-center justify-center'>
-            WELCOME TO HOME PAGE!
-            <button onClick={handleLogout} className='bg-teal-500 hover:bg-teal-700 text-white p-2 rounded-lg mt-2 font-bold'>LOGOUT!</button>
-        </div>
+        <>
+            <Navbar />
+            <div className='min-h-screen bg-teal-300 flex flex-col items-center justify-center'>
+                WELCOME TO HOME PAGE!
+                <button onClick={handleLogout} className='bg-teal-500 hover:bg-teal-700 text-white p-2 rounded-lg mt-2 font-bold'>LOGOUT!</button>
+            </div>
+        </>
     )
 }
 
