@@ -20,7 +20,7 @@ const iconVariants = (duration) => ({
 
 const Description = () => {
     return (
-        <div className='h-screen py-10 flex flex-col justify-center items-center px-4 text-black' style={{height:'calc(100vh - 64px)'}}>
+        <div className=' py-10 flex flex-col justify-center items-center px-4 text-black' style={{height:'calc(100vh - 64px)'}}>
             <motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: -100 }} transition={{ duration: 0.8 }} className='mb-8'>
                 <h3 className='text-3xl font-semibold '>What do we offer ?</h3>
             </motion.div>

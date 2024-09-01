@@ -18,12 +18,15 @@ const SignupPage = () => {
         password: '',
         phone: '',
         age: 0,
+        role:'',
         gender: ''
     });
     const navigate = useNavigate();
     const showToast = useShowToast();
     const onSubmitHandler = async (event) => {
         try {
+            console.log(input);
+            
             event.preventDefault();
             const response = await axios.post(`${BASE_URL}/user/signup`, input, {
                 headers: {
@@ -77,13 +80,23 @@ const SignupPage = () => {
                     </div>
                     <div className='flex flex-col sm:flex-row items-center gap-2'>
                         <FormControl isRequired>
+                            <FormLabel className='text-black'>Role</FormLabel>
+                            <Select placeholder='Select role' className='text-black' value={input.role} onChange={event => setInput({ ...input, role: event.target.value })}>
+                                <option value='male' >Coach</option>
+                                <option value='female' >Player</option>
+                                <option value='other' >Other</option>
+                            </Select>
+                        </FormControl>
+                    </div>
+                    <div className='flex flex-col sm:flex-row items-center gap-2'>
+                        <FormControl isRequired>
                             <FormLabel className='text-black'>Gender</FormLabel>
                             <Select placeholder='Select gender' className='text-black' value={input.gender} onChange={event => setInput({ ...input, gender: event.target.value })}>
-                                <option value='male' className='text-white'>Male</option>
-                                <option value='female' className='text-white'>Female</option>
-                                <option value='non-binary' className='text-white'>Non-binary</option>
-                                <option value='trans' className='text-white'>Trans</option>
-                                <option value='other' className='text-white'>Other</option>
+                                <option value='male' >Male</option>
+                                <option value='female' >Female</option>
+                                <option value='non-binary' >Non-binary</option>
+                                <option value='trans' >Trans</option>
+                                <option value='other' >Other</option>
                             </Select>
                         </FormControl>
                     </div>
