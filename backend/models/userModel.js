@@ -12,9 +12,9 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    type:{
+    role:{
         type:String,
-        enum:['coach','player'],
+        enum:['coach','player','other'],
         required:true,
     },
     email: {

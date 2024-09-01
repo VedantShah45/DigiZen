@@ -4,8 +4,8 @@ import jwt from 'jsonwebtoken'
 
 export const registerUserController = async (request, response) => {
     try {
-        const { name, username, email, password, phone, gender, age } = request.body;
-        if (!name || !username || !email || !password || !phone || !gender || !age) {
+        const { name, username, email, password, phone, gender, age, role } = request.body;
+        if (!name || !username || !email || !password || !phone || !gender || !age || !role) {
             return response.status(400).json({
                 success: false,
                 message: 'Please fill in all fields'
@@ -32,8 +32,9 @@ export const registerUserController = async (request, response) => {
             email,
             password: hashedPassword,
             phone,
-            gender,
-            age
+            age,
+            role,
+            gender
         });
         await user.save();
         return response.status(201).json({
@@ -41,6 +42,7 @@ export const registerUserController = async (request, response) => {
             message: 'Account created successfully',
         });
     } catch (error) {
+        console.log(error)
         return response.status(500).json({
             success: false,
             message: 'Internal Server Error',
@@ -85,6 +87,7 @@ export const loginUserController = async (request, response) => {
             token
         });
     } catch (error) {
+        console.log(error);
         return response.status(500).json({
             success: false,
             message: 'Internal Server Error',
