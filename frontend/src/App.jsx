@@ -6,13 +6,16 @@ import HomePage from './pages/HomePage'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <div className='m-0 p-0 b-0 w-full h-full'>
+      <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
+    
   )
 }
 

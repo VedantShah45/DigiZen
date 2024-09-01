@@ -14,10 +14,12 @@ const HomePage = () => {
     }, []);
     return (
         <>
+        <div className='m-0 p-3 h-full' style={{backgroundImage: "linear-gradient(to bottom, #0D2149, #F9EBE0)"}}>
             <Navbar />
             <Hero />
             <Description />
-            <Footer />
+            {/* <Footer /> */}
+        </div>
         </>
     )
 }
